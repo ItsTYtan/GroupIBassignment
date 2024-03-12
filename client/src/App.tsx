@@ -1,4 +1,4 @@
-import './styles.css';
+import '../public/styles/styles.css';
 
 const App = () => {
     const evtSource = new EventSource('http://localhost:9000/events');
@@ -14,6 +14,7 @@ const App = () => {
     return (
         <>
             <h1>Write your code here!</h1>
+            <div id='test'></div>
             <ul id='list'>
 
             </ul>
