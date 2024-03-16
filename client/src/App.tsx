@@ -1,23 +1,22 @@
-import '../public/styles/styles.css';
+import { useState } from 'react';
+import '../public/styles.css';
+import Navbar from './components/Navbar';
+import { Position, Tab } from './enums';
+import NotificationsList from './components/NotficationsList';
 
 const App = () => {
-    const evtSource = new EventSource('http://localhost:9000/events');
+    const [tab, setTab] = useState(0);
 
-    // evtSource.onmessage = (event) => {
-    //     const newElement = document.createElement("li");
-    //     const eventList = document.getElementById("list");
-      
-    //     newElement.textContent = `message: ${event.data}`;
-    //     eventList!.appendChild(newElement);
-    // }
+    function handleTabClick(tab: Tab) {
+        setTab(tab);
+    }
 
     return (
         <>
-            <h1>Write your code here!</h1>
-            <div id='test'></div>
-            <ul id='list'>
-
-            </ul>
+            <Navbar tab={tab} handleTabClick={handleTabClick} />
+            { tab == Tab.Main && <h1>Main</h1> }
+            { tab == Tab.Settings && <h1>Settings</h1> }
+            <NotificationsList maxNotifs={100} position={Position.TopLeft} notifTimeout={5000}/>
         </>
     );
 };
