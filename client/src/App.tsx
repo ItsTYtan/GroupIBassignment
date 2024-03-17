@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import '../public/styles.css';
 import Navbar from './components/Navbar';
-import { Position, Tab } from './enums';
+import { Tab } from './enums';
+import { PositionStyle } from './types';
 import NotificationsList from './components/NotficationsList';
+import Settings from './components/Settings';
 
 const App = () => {
     const [tab, setTab] = useState(0);
@@ -12,12 +14,13 @@ const App = () => {
     }
 
     return (
-        <>
+        <main>
             <Navbar tab={tab} handleTabClick={handleTabClick} />
-            { tab == Tab.Main && <h1>Main</h1> }
-            { tab == Tab.Settings && <h1>Settings</h1> }
-            <NotificationsList maxNotifs={100} position={Position.TopLeft} notifTimeout={5000}/>
-        </>
+            <section>
+                { tab == Tab.Main && <NotificationsList maxNotifs={100} position={PositionStyle.topRight} notifTimeout={5000}/> }
+                { tab == Tab.Settings && <Settings/> }
+            </section>
+        </main>
     );
 };
 

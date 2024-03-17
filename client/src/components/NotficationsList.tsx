@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Notification } from "../types";
-import { Position } from "../enums";
+import { Notification, PositionStyle } from "../types";
 
 export default function NotificationsList({ 
     maxNotifs, 
@@ -8,7 +7,7 @@ export default function NotificationsList({
     notifTimeout, 
 }:{ 
     maxNotifs: number; 
-    position: Position;
+    position: PositionStyle;
     notifTimeout: number;
 }) {
     const [notifArr, setNotifArr] = useState<Notification[]>([]);
@@ -35,7 +34,7 @@ export default function NotificationsList({
     const notifElements = notifArr.map((notif : Notification) => <NotficationListItem key={notif.msg_id} notif={notif} />);
 
     return (
-        <ul>
+        <ul className="list notifications-list" style={position}>
             {notifElements}
         </ul>
    
@@ -47,5 +46,9 @@ function NotficationListItem({
 }:{ 
     notif: Notification; 
 }) {
-    return <li>{notif.msg}</li>
+    return (
+        <div className='listtile notification'>
+            {notif.msg}
+        </div>
+    )
 }
