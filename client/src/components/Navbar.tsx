@@ -4,37 +4,37 @@ import { useState } from "react";
 import { Tab } from "../enums";
 
 export default function Navbar({
-    tab, 
+    currTab, 
     handleTabClick, 
 }:{
-    tab: Tab;
+    currTab: Tab;
     handleTabClick: Function;
 }) {
+
+    //React component for each tab button
+    function TabButton({ 
+        tab, 
+        buttonDisplayText 
+    } : {
+        tab: Tab;
+        buttonDisplayText: String;
+    }) {
+        return (
+            <button
+                id="tabButton"
+                onClick={() => handleTabClick(tab, currTab)}
+            >
+                {buttonDisplayText}
+            </button>
+        )
+    }
+
     return (
         <nav>
             <h1>Notification task</h1>
-            <TabButton handleClick={handleTabClick} tab={Tab.Main} buttonDisplayText='Main' />
-            <TabButton handleClick={handleTabClick} tab={Tab.Settings} buttonDisplayText='Settings' />
+            <TabButton tab={Tab.Main} buttonDisplayText='Main' />
+            <TabButton tab={Tab.Settings} buttonDisplayText='Settings' />
         </nav>
     )
 }
 
-//React component for each tab button
-function TabButton({ 
-    handleClick, 
-    tab, 
-    buttonDisplayText 
-} : {
-    handleClick: Function;
-    tab: Tab;
-    buttonDisplayText: String;
-}) {
-    return (
-        <button
-            id="tabButton"
-            onClick={() => handleClick(tab)}
-        >
-            {buttonDisplayText}
-        </button>
-    )
-}

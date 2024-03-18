@@ -17,7 +17,12 @@ export default function NotificationsList({
         evtSource.onmessage = (event) => {
             event.preventDefault();
             const newNotif: Notification = JSON.parse(event.data);
-            setNotifArr((notifArr) => [...notifArr, newNotif]);
+            setNotifArr((notifArr) => {
+                if (notifArr.length >= maxNotifs) {
+                    notifArr = notifArr.slice(1);
+                }
+                return [...notifArr, newNotif];
+            });
             setTimeout(() => {
                 setNotifArr((notifArr) => {
                     return notifArr.filter((notif) => notif.msg_id !== newNotif.msg_id);
@@ -26,10 +31,6 @@ export default function NotificationsList({
         };
     }, []);
 
-    if (notifArr.length > maxNotifs) {
-        const newNotifArr = notifArr.slice(1);
-        setNotifArr(newNotifArr);
-    }
 
     const notifElements = notifArr.map((notif : Notification) => <NotficationListItem key={notif.msg_id} notif={notif} />);
 

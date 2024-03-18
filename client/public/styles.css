@@ -51,11 +51,17 @@ label {
     margin-right: 8px;
 }
 
-input[type = "text"] {
+input {
     background: transparent;
     color: var(--white-high);
     border: 0;
     width: 32px;
+    margin: auto 0;
+}
+
+input[type = "radio"] {
+    background-color: var(--UI-level-2);
+    color: transparent;
 }
 
 input:not(:last-child) {
@@ -107,6 +113,7 @@ button, #tabButton {
 .settings-tile {
     display: flex;
     width: calc(65vw - 32px);
+    align-items: center;
 }
 
 .setting-name {
