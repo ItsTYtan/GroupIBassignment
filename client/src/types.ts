@@ -7,22 +7,22 @@ export interface Notification {
 export class PositionStyle {
   static topLeft = {
     left: "0px",
-    top: "0px",
+    top: "32px",
   };
 
   static topRight = {
     right: "0px",
-    top: "0px",
+    top: "32px",
   };
 
   static bottomLeft = {
     left: "0px",
-    bottom: "0px",
+    bottom: "32px",
   }
 
   static bottomRight = {
     right: "0px",
-    bottom: "0px",
+    bottom: "32px",
   }
 
   static numToPosition(positionNum: number): PositionStyle {

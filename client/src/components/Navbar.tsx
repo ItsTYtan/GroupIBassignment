@@ -19,9 +19,10 @@ export default function Navbar({
         tab: Tab;
         buttonDisplayText: String;
     }) {
+        console.log(tab, currTab);
         return (
             <button
-                id="tabButton"
+                className= {'tabButton text-medium roboto-medium ' + (currTab === tab ? 'selected' : '')}
                 onClick={() => handleTabClick(tab, currTab)}
             >
                 {buttonDisplayText}
@@ -31,7 +32,7 @@ export default function Navbar({
 
     return (
         <nav>
-            <h1>Notification task</h1>
+            <h1 className="text-large roboto-medium">Notification task</h1>
             <TabButton tab={Tab.Main} buttonDisplayText='Main' />
             <TabButton tab={Tab.Settings} buttonDisplayText='Settings' />
         </nav>

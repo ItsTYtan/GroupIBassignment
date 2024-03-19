@@ -7,6 +7,9 @@
     --white-high: rgba(255, 255, 255, 0.90);
     --drop-shadow: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
     --background-blur: drop-shadow(0 0 60px);
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 body {
@@ -14,9 +17,7 @@ body {
     padding: 0 32px;
     background-color: var(--UI-level-2);
     color: var(--white-high);
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box; 
+    margin: 0;
 }
 
 main {
@@ -30,6 +31,7 @@ section {
     position: relative;
     height: 100%;
     width: 100%;
+    padding: 32px 0;
 }
 
 nav {
@@ -37,12 +39,16 @@ nav {
     height: 72px;
     padding-top: 16px;
     display: flex;
+    align-items: flex-end;
     gap: 40px;
     background-color: var(--UI-level-2);
+    border-bottom: solid 1pt var(--secondary-low);
 }
 
 h1 {
     color: var(--white-high);
+    margin: 0;
+    padding-bottom: 16px;
 }
 
 label {
@@ -55,7 +61,7 @@ input {
     background: transparent;
     color: var(--white-high);
     border: 0;
-    width: 32px;
+    width: 24px;
     margin: auto 0;
 }
 
@@ -68,12 +74,17 @@ input:not(:last-child) {
     margin-right: auto; 
 }
 
-button, #tabButton {
-    width: 36px;
-    height: 72px;
+button.tabButton {
     background-color: var(--UI-level-2);
     border: 0px;
-    color: var(--white-high);
+    color: var(--secondary-medium);
+    padding-bottom: 16px;
+}
+
+button.selected {
+    color: var(--primary-high);
+    border-bottom: solid 2pt var(--primary-high);
+    padding-bottom: calc(16px - 2pt);
 }
 
 .list {
@@ -83,6 +94,7 @@ button, #tabButton {
     align-items: center; 
     height: auto;
     padding: 0;
+    margin: 0;
 }
 
 
@@ -113,6 +125,7 @@ button, #tabButton {
 .settings-tile {
     display: flex;
     width: calc(65vw - 32px);
+    height: 32px;
     align-items: center;
 }
 
@@ -121,3 +134,87 @@ button, #tabButton {
     margin: auto 0;
 }
 
+.text-large {
+    font-size: 22pt;
+}
+
+.text-medium {
+    font-size: 16pt;
+}
+
+.text-small {
+    font-size: 13pt;
+}
+
+.roboto-thin {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+.roboto-light {
+font-family: "Roboto", sans-serif;
+font-weight: 300;
+font-style: normal;
+}
+
+.roboto-regular {
+font-family: "Roboto", sans-serif;
+font-weight: 400;
+font-style: normal;
+}
+
+.roboto-medium {
+font-family: "Roboto", sans-serif;
+font-weight: 500;
+font-style: normal;
+}
+
+.roboto-bold {
+font-family: "Roboto", sans-serif;
+font-weight: 700;
+font-style: normal;
+}
+
+.roboto-black {
+font-family: "Roboto", sans-serif;
+font-weight: 900;
+font-style: normal;
+}
+
+.roboto-thin-italic {
+font-family: "Roboto", sans-serif;
+font-weight: 100;
+font-style: italic;
+}
+
+.roboto-light-italic {
+font-family: "Roboto", sans-serif;
+font-weight: 300;
+font-style: italic;
+}
+
+.roboto-regular-italic {
+font-family: "Roboto", sans-serif;
+font-weight: 400;
+font-style: italic;
+}
+
+.roboto-medium-italic {
+font-family: "Roboto", sans-serif;
+font-weight: 500;
+font-style: italic;
+}
+
+.roboto-bold-italic {
+font-family: "Roboto", sans-serif;
+font-weight: 700;
+font-style: italic;
+}
+
+.roboto-black-italic {
+font-family: "Roboto", sans-serif;
+font-weight: 900;
+font-style: italic;
+}
+  
