@@ -42,11 +42,10 @@ const App = () => {
                         break;
                     }
                     case 'notification-disappear-time': {
-                        setNotifTimeout(parseInt(item[1].toString()) * 1000);
+                        setNotifTimeout(parseInt(item[1].toString()) * 1000);   
                         break;
                     }
                 }
-                
             }
         })
     }
@@ -56,7 +55,7 @@ const App = () => {
             <Navbar currTab={tab} handleTabClick={handleTabClick} />
             <section>
                 { tab == Tab.Main && <NotificationsList maxNotifs={maxNotifs} position={position} notifTimeout={notifTimeout}/> }
-                { tab == Tab.Settings && <Settings handleFormSubmit={handleFormSubmit} ref={formRef}/> }
+                { tab == Tab.Settings && <Settings prevMaxNotifs={maxNotifs} prevPosition={position} prevNotifTimeout={notifTimeout} handleFormSubmit={handleFormSubmit} ref={formRef}/> }
             </section>
         </main>
     );
