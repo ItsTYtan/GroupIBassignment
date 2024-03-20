@@ -18,11 +18,13 @@ export class PositionStyle {
   static bottomLeft = {
     left: "0px",
     bottom: "32px",
+    "flex-direction": "column-reverse",
   }
 
   static bottomRight = {
     right: "0px",
     bottom: "32px",
+    "flex-direction": "column-reverse",
   }
 
   static numToPosition(positionNum: number): PositionStyle {

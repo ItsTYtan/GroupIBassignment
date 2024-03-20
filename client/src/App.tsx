@@ -17,6 +17,9 @@ const App = () => {
     function handleTabClick(nextTab: Tab, prevTab: Tab) {
         if (prevTab === Tab.Settings) {
             formRef.current?.requestSubmit();
+            if (!formRef.current?.checkValidity()) {
+                return;
+            }
         }
         setTab(nextTab);
     }

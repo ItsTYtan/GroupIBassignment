@@ -48,7 +48,7 @@ function NotficationListItem({
     notif: Notification; 
 }) {
     return (
-        <div className='listtile notification'>
+        <div className='listtile notification roboto-medium text-small'>
             {notif.msg}
         </div>
     )
